@@ -1,0 +1,13 @@
+<div class="menu-item-info-box">
+
+    <span class="menu-item-info-box-icon"><img [src]="menuItem.linkImg"></span>
+
+    <div class="menu-item-info-box-content">
+      <span class="menu-item-info-box-text">{{menuItem.nome}}</span>
+      <span class="menu-item-info-box-detail">{{menuItem.descricao}}</span>
+      <span class="menu-item-info-box-price">{{menuItem.preco | currency: 'BRL':true }}</span>
+      <a (click)="itemAdicionado()" class=""><i class="fa fa-plus-circle"></i> Adicionar</a>
+    </div>
+
+
+</div>

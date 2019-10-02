@@ -1,0 +1,1 @@
+export const COOK_API = 'http://localhost:3000'
