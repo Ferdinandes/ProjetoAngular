@@ -26,9 +26,13 @@ export class RadioComponent implements OnInit, ControlValueAccessor {
   ngOnInit() {
   }
 
+  mensagem(texto: string){
+    console.log("Texto seguinte: " + texto + " E value: " + this.valor)
+  }
+
   setValor(valor: any) {
     this.valor = valor
-    this.onChange(this.valor)
+    this.onChange = this.valor
   }
 
   writeValue(obj: any): void {

@@ -5,4 +5,6 @@ export interface Restaurante{
     tempoEstimado: string
     avaliacao: number
     linkImg: string   
+    sobre?:string
+    horario?:string
 }

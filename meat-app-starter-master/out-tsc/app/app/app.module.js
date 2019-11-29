@@ -5,23 +5,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { SobreComponent } from './sobre/sobre.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { RestauranteComponent } from './restaurantes/restaurante/restaurante.component';
-import { RestaurantesServico } from './restaurantes/restaurantes.servico';
 import { DetalhesRestauranteComponent } from './detalhes-restaurante/detalhes-restaurante.component';
 import { MenuComponent } from './detalhes-restaurante/menu/menu.component';
 import { CarrinhoComponent } from './detalhes-restaurante/carrinho/carrinho.component';
 import { ItemMenuComponent } from './detalhes-restaurante/item-menu/item-menu.component';
 import { ReviewsComponent } from './detalhes-restaurante/reviews/reviews.component';
-import { carrinhoServico } from './detalhes-restaurante/carrinho/carrinho.servico';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormBuilder } from '@angular/forms';
+import { PedidoSumarioComponent } from './pedido-sumario/pedido-sumario.component';
+import { CompartilhadoModule } from './compartilhado/compartilhado.module';
+import { ItensPedidoComponent } from './itens-pedido/itens-pedido.component';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -31,21 +33,24 @@ var AppModule = /** @class */ (function () {
                 AppComponent,
                 HeaderComponent,
                 HomeComponent,
-                SobreComponent,
                 RestaurantesComponent,
                 RestauranteComponent,
                 DetalhesRestauranteComponent,
                 MenuComponent,
                 CarrinhoComponent,
                 ItemMenuComponent,
-                ReviewsComponent
+                ReviewsComponent,
+                PedidoSumarioComponent,
+                ItensPedidoComponent
             ],
             imports: [
                 BrowserModule,
+                BrowserAnimationsModule,
                 HttpModule,
-                RouterModule.forRoot(ROUTES),
+                RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
+                CompartilhadoModule.forRoot(),
             ],
-            providers: [RestaurantesServico, carrinhoServico],
+            providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }, FormBuilder],
             bootstrap: [AppComponent]
         })
     ], AppModule);

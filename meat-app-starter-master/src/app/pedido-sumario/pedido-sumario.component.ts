@@ -5,10 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './pedido-sumario.component.html',
 })
 export class PedidoSumarioComponent implements OnInit {
-
+rated: boolean
   constructor() { }
 
   ngOnInit() {
   }
-
+  rate(){
+    this.rated=true
+  }
 }
